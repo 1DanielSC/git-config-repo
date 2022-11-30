@@ -1,17 +1,17 @@
 spring:
-  application:
-    name: PRODUCT-BACK
-  datasource:
-    username: postgres
-    password: postgres
-    url: jdbc:postgresql://localhost:5432/product-back
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-     hibernate:
-        ddl-auto: create
+    application:
+        name: PRODUCT-BACK
+    datasource:
+        username: postgres
+        password: postgres
+        url: jdbc:postgresql://localhost:5432/product-back
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: create
 
     
 server:
-  port: 8081
+    port: 8081
