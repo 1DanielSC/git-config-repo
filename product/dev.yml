@@ -1,6 +1,6 @@
 spring:
     application:
-        name: 'product-back'
+        name: product-back
     datasource:
         username: postgres
         password: postgres
