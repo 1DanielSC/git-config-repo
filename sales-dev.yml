@@ -1,0 +1,17 @@
+spring:
+    application:
+        name: sales
+    datasource:
+        username: postgres
+        password: postgres
+        url: jdbc:postgresql://localhost:5432/sales-back
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: create
+
+    
+server:
+    port: 8082
