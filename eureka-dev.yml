@@ -8,4 +8,4 @@ eureka:
         register-with-eureka: false
 
 server:
-    port: 9000
+    port: 8761
