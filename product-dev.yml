@@ -26,3 +26,7 @@ eureka:
     
 server:
     port: 8080
+
+product:
+    ribbon:
+        listOfServer: http://localhost:8080, http://localhost:8090
