@@ -15,8 +15,7 @@ spring:
         loadbalancer:
             ribbon:
                 enabled: false
-                listOfServers: http://localhost:8080,http://localhost:8082
-                ServerListRefreshInterval: 2000
+
 eureka:
     client:
         fetch-register: true
