@@ -15,8 +15,6 @@ spring:
         loadbalancer:
             ribbon:
                 enabled: false
-                listOfServers: localhost:8080,localhost:8082
-                ServerListRefreshInterval: 2000
 
 eureka:
     client:
