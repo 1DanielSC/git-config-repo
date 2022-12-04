@@ -5,6 +5,11 @@ spring:
         loadbalancer:
             ribbon:
                 enabled: false
+        gateway:
+            discovery:
+                locator:
+                    enabled: true
+                    lower-case-service-id: id
 
 eureka:
     client:
