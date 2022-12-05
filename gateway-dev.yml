@@ -12,15 +12,15 @@ spring:
                     lower-case-service-id: true
             routes:
                 - id: product
-                  uri: loadbalancer://product
+                  uri: lb://product
                   predicates:
                     - Path = /product/**
                 - id: review
-                  uri: loadbalancer://review
+                  uri: lb://review
                   predicates: 
                     - Path=/review/**
                 - id: sales
-                  uri: loadbalancer://sales
+                  uri: lb://sales
                   predicates: 
                     - Path=/order/**
                   
