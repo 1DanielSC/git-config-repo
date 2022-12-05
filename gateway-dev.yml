@@ -12,7 +12,7 @@ spring:
                     lower-case-service-id: true
             routes:
                 - id: product
-                  uri: lb://product/product
+                  uri: lb://product
                   predicates:
                     - Path=/product/**
                 - id: review
