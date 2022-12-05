@@ -18,11 +18,11 @@ spring:
                 - id: review
                   uri: loadbalancer://review
                   predicates: 
-                    - Path=/review/
+                    - Path=/review/**
                 - id: sales
                   uri: loadbalancer://sales
                   predicates: 
-                    - Path=/order/
+                    - Path=/order/**
                   
 
 eureka:
