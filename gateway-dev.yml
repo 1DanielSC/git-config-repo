@@ -10,6 +10,20 @@ spring:
                 locator:
                     enabled: true
                     lower-case-service-id: true
+            routes:
+                - id: product
+                  uri: loadbalancer://product
+                  predicates:
+                    - Path = /product/**
+                - id: review
+                  uri: loadbalancer://review
+                  predicates: 
+                    - Path=/review/
+                - id: sales
+                  uri: loadbalancer://sales
+                  predicates: 
+                    - Path=/order/
+                  
 
 eureka:
     client:
