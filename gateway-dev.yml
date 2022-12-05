@@ -11,15 +11,15 @@ spring:
                     enabled: true
                     lower-case-service-id: true
             routes:
-                - id: product
+                - id: product-route
                   uri: lb://PRODUCT
                   predicates:
                     - Path=/product/**
-                - id: review
+                - id: review-route
                   uri: lb://REVIEW
                   predicates: 
                     - Path=/review/**
-                - id: sales
+                - id: sales-route
                   uri: lb://SALES
                   predicates: 
                     - Path=/order/**
