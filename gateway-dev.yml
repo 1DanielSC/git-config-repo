@@ -24,7 +24,7 @@ spring:
                   predicates: 
                     - Path=/order/**
                   filtes:
-                        - name: Retry
+                      - name: Retry
                         args:
                             retries: 20
                             statuses: BAD_GATEWAY
