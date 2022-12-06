@@ -23,6 +23,18 @@ spring:
                   uri: lb://SALES/
                   predicates: 
                     - Path=/order/**
+                  filtes:
+                        - name: Retry
+                        args:
+                            retries: 20
+                            statuses: BAD_GATEWAY
+                            methods: GET
+                            backoff:
+                                firstBackoff: 10ms
+                                maxBackoff: 100ms
+                                factor: 2
+                                basedOnPreviousValue: false
+                              
                   
 
 eureka:
