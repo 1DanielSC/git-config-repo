@@ -23,7 +23,7 @@ spring:
                   uri: lb://SALES/
                   predicates: 
                     - Path=/order/**
-                  filtes:
+                  filters:
                       - name: Retry
                         args:
                             retries: 20
