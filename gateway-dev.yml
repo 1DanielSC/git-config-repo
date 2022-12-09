@@ -34,7 +34,13 @@ spring:
                                 maxBackoff: 100ms
                                 factor: 2
                                 basedOnPreviousValue: false
-                              
+                      - name: CircuitBreaker
+                        args:
+                            name: alphacircuitbreaker
+                            slidingWindowSize: 20
+                            permittedNumberOfCallsInHalfOpenState: 5
+                            failureRateThreshold: 50
+                            waitDurationInOpenState: 10000
                   
 
 eureka:
