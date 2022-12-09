@@ -15,6 +15,26 @@ spring:
         loadbalancer:
             ribbon:
                 enabled: false
+        gateway:
+            routes:
+                filters:
+                      - name: Retry
+                        args:
+                            retries: 20
+                            statuses: BAD_GATEWAY
+                            methods: GET
+                            backoff:
+                                firstBackoff: 10ms
+                                maxBackoff: 100ms
+                                factor: 2
+                                basedOnPreviousValue: false
+                      - name: CircuitBreaker
+                        args:
+                            name: alphacircuitbreaker
+                            slidingWindowSize: 20
+                            permittedNumberOfCallsInHalfOpenState: 5
+                            failureRateThreshold: 50
+                            waitDurationInOpenState: 10000
 
 eureka:
     client:
