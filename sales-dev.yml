@@ -20,10 +20,11 @@ resilience4j.circuitbreaker:
     instances:
         servicebeta:
             registerHealthIndicator: true
-            ringBufferSizeInClosedState: 5
-            ringBufferSizeInHalfOpenState: 3
+            failureRateThreshold: 50
+            slidingWindowSize: 20
+            minimumNumberOfCalls: 20
             waitDurationInOpenState: 10s
-            failureRateThreshold: 5
+            permmitedNumberOfCallsInHalfOpenState: 5
             recordExceptions:
                 - org.springframework.web.client.HttpServerErrorException
                 - java.io.IOException
@@ -32,12 +33,11 @@ resilience4j.circuitbreaker:
                 - org.springframework.web.client.ResourceAccessException
                 - java.lang.RuntimeException
 
-resilience4j.thread-pool-bulkhead:
+resilience4j.bulkhead:
     instances:
         bulkheadservicebeta:
-            maxThreadPoolSize: 1
-            coreThreadPoolSize: 1
-            queueCapacity: 1
+            maxConcurrentCalls: 20
+            maxWaitDuration: 1s
 
 resilience4j.retry:
     instances:
@@ -50,16 +50,18 @@ resilience4j.retry:
 
 
 management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    circuitbreakers:
+      enabled: true
     health:
-        circuitbreakers:
-            enabled: true
-    endpoints:
-        web:
-            exposure:
-                include: health
-    endpoint:
-        health:
-            show-details: always
+      show-details: ALWAYS
+  health:
+    circuitbreakers:
+      enabled: true
 
 
 eureka:
