@@ -33,12 +33,11 @@ resilience4j.circuitbreaker:
                 - org.springframework.web.client.ResourceAccessException
                 - java.lang.RuntimeException
 
-resilience4j.thread-pool-bulkhead:
+resilience4j.bulkhead:
     instances:
         bulkheadservicebeta:
-            maxThreadPoolSize: 1
-            coreThreadPoolSize: 1
-            queueCapacity: 1
+            maxConcurrentCalls: 20
+            maxWaitDuration: 1s
 
 resilience4j.retry:
     instances:
@@ -58,16 +57,18 @@ eureka:
         preferIpAddress: true
 
 management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    circuitbreakers:
+      enabled: true
     health:
-        circuitbreakers:
-            enabled: true
-    endpoints:
-        web:
-            exposure:
-                include: health
-    endpoint:
-        health:
-            show-details: always
+      show-details: ALWAYS
+  health:
+    circuitbreakers:
+      enabled: true
 
 server:
     port: 8081
