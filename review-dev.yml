@@ -22,26 +22,26 @@ resilience4j:
         instances:
             getProductNameBreaker:
                 registerHealthIndicator: true
-                failureRateThreshold: 50
-                slidingWindowSize: 20
-                minimumNumberOfCalls: 20
+                ringBufferSizeInClosedState: 5
+                ringBufferSizeInHalfOpenState: 3
                 waitDurationInOpenState: 10s
-                permmitedNumberOfCallsInHalfOpenState: 5
+                failureRateThreashold: 5
+                
              updateProductBreaker:
                 registerHealthIndicator: true
-                failureRateThreshold: 50
-                slidingWindowSize: 20
-                minimumNumberOfCalls: 20
+                ringBufferSizeInClosedState: 5
+                ringBufferSizeInHalfOpenState: 3
                 waitDurationInOpenState: 10s
-                permmitedNumberOfCallsInHalfOpenState: 5
+                failureRateThreashold: 5
+                
     bulkhead:
         instances:
             getProductNameBulk:
+                maxWaitDuration: 2m
                 maxConcurrentCalls: 20
-                maxWaitDuration: 1s
             updateProductBulk:
+                maxWaitDuration: 2m
                 maxConcurrentCalls: 20
-                maxWaitDuration: 1s
 
     retry:
         instances:
