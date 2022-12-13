@@ -17,37 +17,35 @@ spring:
                 enabled: false
         
 
-resilience4j:
-    circuitbreaker:
-        instances:
-            getProductNameBreaker:
-                registerHealthIndicator: true
-                ringBufferSizeInClosedState: 5
-                ringBufferSizeInHalfOpenState: 3
-                waitDurationInOpenState: 10s
-                failureRateThreashold: 5
+resilience4j.circuitbreaker:
+    instances:
+        getProductNameBreaker:
+            registerHealthIndicator: true
+            ringBufferSizeInClosedState: 5
+            ringBufferSizeInHalfOpenState: 3
+            waitDurationInOpenState: 10s
+            failureRateThreashold: 5
+         updateProductBreaker:
+             registerHealthIndicator: true
+             ringBufferSizeInClosedState: 5
+             ringBufferSizeInHalfOpenState: 3
+              waitDurationInOpenState: 10s
+              failureRateThreashold: 5
                 
-             updateProductBreaker:
-                registerHealthIndicator: true
-                ringBufferSizeInClosedState: 5
-                ringBufferSizeInHalfOpenState: 3
-                waitDurationInOpenState: 10s
-                failureRateThreashold: 5
-                
-    bulkhead:
-        instances:
-            getProductNameBulk:
-                maxWaitDuration: 2m
-                maxConcurrentCalls: 20
-            updateProductBulk:
-                maxWaitDuration: 2m
-                maxConcurrentCalls: 20
+resilience4j.bulkhead:
+    instances:
+        getProductNameBulk:
+            maxWaitDuration: 2ms
+            maxConcurrentCalls: 20
+        updateProductBulk:
+            maxWaitDuration: 2ms
+            maxConcurrentCalls: 20
 
-    retry:
-        instances:
-            retryservicebeta:
-                maxRetryAttempts: 5
-                waitDuration: 1000
+resilience4j.retry:
+    instances:
+        retryservicebeta:
+            maxRetryAttempts: 5
+            waitDuration: 1000
 
 eureka:
     client:
