@@ -17,54 +17,37 @@ spring:
                 enabled: false
         
 
-resilience4j.circuitbreaker:
-    instances:
-        getProductNameBreaker:
-            registerHealthIndicator: true
-            failureRateThreshold: 50
-            slidingWindowSize: 20
-            minimumNumberOfCalls: 20
-            waitDurationInOpenState: 10s
-            permmitedNumberOfCallsInHalfOpenState: 5
-            recordExceptions:
-                - org.springframework.web.client.HttpServerErrorException
-                - java.io.IOException
-                - java.lang.IllegalStateException
-                - java.util.concurrent.TimeoutException
-                - org.springframework.web.client.ResourceAccessException
-                - java.lang.RuntimeException
-         updateProductBreaker:
-            registerHealthIndicator: true
-            failureRateThreshold: 50
-            slidingWindowSize: 20
-            minimumNumberOfCalls: 20
-            waitDurationInOpenState: 10s
-            permmitedNumberOfCallsInHalfOpenState: 5
-            recordExceptions:
-                - org.springframework.web.client.HttpServerErrorException
-                - java.io.IOException
-                - java.lang.IllegalStateException
-                - java.util.concurrent.TimeoutException
-                - org.springframework.web.client.ResourceAccessException
-                - java.lang.RuntimeException
-        
-resilience4j.bulkhead:
-    instances:
-        getProductNameBulk:
-            maxConcurrentCalls: 20
-            maxWaitDuration: 1s
-        updateProductBulk:
-            maxConcurrentCalls: 20
-            maxWaitDuration: 1s
+resilience4j:
+    circuitbreaker:
+        instances:
+            getProductNameBreaker:
+                registerHealthIndicator: true
+                failureRateThreshold: 50
+                slidingWindowSize: 20
+                minimumNumberOfCalls: 20
+                waitDurationInOpenState: 10s
+                permmitedNumberOfCallsInHalfOpenState: 5
+             updateProductBreaker:
+                registerHealthIndicator: true
+                failureRateThreshold: 50
+                slidingWindowSize: 20
+                minimumNumberOfCalls: 20
+                waitDurationInOpenState: 10s
+                permmitedNumberOfCallsInHalfOpenState: 5
+    bulkhead:
+        instances:
+            getProductNameBulk:
+                maxConcurrentCalls: 20
+                maxWaitDuration: 1s
+            updateProductBulk:
+                maxConcurrentCalls: 20
+                maxWaitDuration: 1s
 
-resilience4j.retry:
-    instances:
-        retryservicebeta:
-            maxRetryAttempts: 5
-            waitDuration: 10000
-            retry-exceptions:
-                - java.util.concurrent.TimeoutException
-                - java.net.ConnectException
+    retry:
+        instances:
+            retryservicebeta:
+                maxRetryAttempts: 5
+                waitDuration: 1000
 
 eureka:
     client:
