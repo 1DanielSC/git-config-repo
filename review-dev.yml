@@ -16,7 +16,6 @@ spring:
             ribbon:
                 enabled: false
         
-
 resilience4j.circuitbreaker:
     instances:
         getProductNameBreaker:
@@ -25,13 +24,21 @@ resilience4j.circuitbreaker:
             ringBufferSizeInHalfOpenState: 3
             waitDurationInOpenState: 10s
             failureRateThreashold: 5
-         updateProductBreaker:
+            recordExceptions:
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
+                - java.lang.IllegalStateException
+                - java.util.concurrent.TimeoutException
+                - org.springframework.web.client.ResourceAccessException
+                - java.lang.RuntimeException
+        updateProductBreaker:
             registerHealthIndicator: true
             ringBufferSizeInClosedState: 5
             ringBufferSizeInHalfOpenState: 3
             waitDurationInOpenState: 10s
             failureRateThreashold: 5
-                
+
+            
 resilience4j.bulkhead:
     instances:
         getProductNameBulk:
