@@ -26,11 +26,11 @@ resilience4j.circuitbreaker:
             waitDurationInOpenState: 10s
             failureRateThreashold: 5
          updateProductBreaker:
-             registerHealthIndicator: true
-             ringBufferSizeInClosedState: 5
-             ringBufferSizeInHalfOpenState: 3
-              waitDurationInOpenState: 10s
-              failureRateThreashold: 5
+            registerHealthIndicator: true
+            ringBufferSizeInClosedState: 5
+            ringBufferSizeInHalfOpenState: 3
+            waitDurationInOpenState: 10s
+            failureRateThreashold: 5
                 
 resilience4j.bulkhead:
     instances:
