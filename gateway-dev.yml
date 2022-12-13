@@ -15,10 +15,30 @@ spring:
                   uri: lb://PRODUCT/
                   predicates:
                     - Path=/product/**
+                  filters:
+                    - name: CircuitBreaker
+                      args:
+                        name: product
+                        registerHealthIndicator: true
+                        failureRateThreshold: 50
+                        slidingWindowSize: 20
+                        minimumNumberOfCalls: 20
+                        waitDurationInOpenState: 10s
+                        permmitedNumberOfCallsInHalfOpenState: 5
                 - id: review-route
                   uri: lb://REVIEW/
                   predicates: 
                     - Path=/review/**
+                  filters:
+                    - name: CircuitBreaker
+                      args:
+                        name: review
+                        registerHealthIndicator: true
+                        failureRateThreshold: 50
+                        slidingWindowSize: 20
+                        minimumNumberOfCalls: 20
+                        waitDurationInOpenState: 10s
+                        permmitedNumberOfCallsInHalfOpenState: 5
                 - id: sales-route
                   uri: lb://SALES/
                   predicates: 
@@ -26,7 +46,7 @@ spring:
                   filters:
                       - name: Retry
                         args:
-                            retries: 20
+                            retries: 10
                             statuses: BAD_GATEWAY
                             methods: GET
                             backoff:
@@ -34,6 +54,15 @@ spring:
                                 maxBackoff: 100ms
                                 factor: 2
                                 basedOnPreviousValue: false
+                      - name: CircuitBreaker
+                          args:
+                            name: sales
+                            registerHealthIndicator: true
+                            failureRateThreshold: 50
+                            slidingWindowSize: 20
+                            minimumNumberOfCalls: 20
+                            waitDurationInOpenState: 10s
+                            permmitedNumberOfCallsInHalfOpenState: 5
                                 
 
 eureka:
@@ -43,12 +72,23 @@ eureka:
         defaultZone: http://localhost:8761/eureka
     instance:
         preferIpAddress: true
+        lease-expiration-duration-in-seconds: 10
     
 server:
     port: 8090
     
 management:
-    endpoints:
-        web:
-            exposure:
-                include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+    circuitbreakers:
+      enabled: true
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    circuitbreakers:
+      enabled: true
