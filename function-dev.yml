@@ -2,7 +2,10 @@ spring:
     application:
         name: function
     zipkin:
-        baseUrl: http://localhost:9411/
+        baseUrl: http://localhost:9411
+    sleuth:
+        sampler:
+            probability: 1.0
         
 
 eureka:
