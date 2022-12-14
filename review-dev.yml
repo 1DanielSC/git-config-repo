@@ -1,6 +1,16 @@
 spring:
     application:
         name: review
+    zipkin:
+        enabled: true
+        base-url: http://localhost:9411
+        locator:
+            discovery:
+                enabled: true
+    sleuth:
+        enabled: true
+        sampler:
+            probability: 1.0
     datasource:
         username: postgres
         password: postgres
