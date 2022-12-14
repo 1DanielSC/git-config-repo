@@ -71,7 +71,6 @@ management:
     circuitbreakers:
       enabled: true
 
-
 eureka:
     client:
         fetch-register: true
