@@ -10,52 +10,63 @@ spring:
  #               locator:
   #                  enabled: true
    #                 lower-case-service-id: true
+            default-filters:
+                - name: Retry
+                  args:
+                    retries: 3
+                    methods: GET
+                    statuses: BAD_GATEWAY
+                    backoff:
+                      firstBackoff: 50ms
+                      maxBackoff: 500ms
+                      factor: 2
+                      basedOnPreiousValue: false
+                
             routes:
                 - id: product-route
                   uri: lb://PRODUCT/
                   predicates:
                     - Path=/product/**
                   filters:
-                      - name: Retry
-                        args:
-                            retries: 10
-                            statuses: BAD_GATEWAY
-                            methods: GET
-                            backoff:
-                                firstBackoff: 10ms
-                                maxBackoff: 100ms
-                                factor: 2
-                                basedOnPreviousValue: false
+                    - name: CircuitBreaker
+                      args:
+                        name: product_circuit_breaker
+                        registerHealthIndicator: true
+                        failureRateThreshold: 50
+                        slidingWindowSize: 20
+                        minimumNumberOfCalls: 20
+                        waitDurationInOpenState: 10s
+                        permmitedNumberOfCallsInHalfOpenState: 5
                 - id: review-route
                   uri: lb://REVIEW/
                   predicates: 
                     - Path=/review/**
                   filters:
-                      - name: Retry
-                        args:
-                            retries: 10
-                            statuses: BAD_GATEWAY
-                            methods: GET
-                            backoff:
-                                firstBackoff: 10ms
-                                maxBackoff: 100ms
-                                factor: 2
-                                basedOnPreviousValue: false
+                    - name: CircuitBreaker
+                      args:
+                        name: review_circuit_breaker
+                        registerHealthIndicator: true
+                        failureRateThreshold: 50
+                        slidingWindowSize: 20
+                        minimumNumberOfCalls: 20
+                        waitDurationInOpenState: 10s
+                        permmitedNumberOfCallsInHalfOpenState: 5
+                        
                 - id: sales-route
                   uri: lb://SALES/
                   predicates: 
                     - Path=/order/**
                   filters:
-                      - name: Retry
-                        args:
-                            retries: 10
-                            statuses: BAD_GATEWAY
-                            methods: GET
-                            backoff:
-                                firstBackoff: 10ms
-                                maxBackoff: 100ms
-                                factor: 2
-                                basedOnPreviousValue: false
+                    - name: CircuitBreaker
+                      args:
+                        name: sales_circuit_breaker
+                        registerHealthIndicator: true
+                        failureRateThreshold: 50
+                        slidingWindowSize: 20
+                        minimumNumberOfCalls: 20
+                        waitDurationInOpenState: 10s
+                        permmitedNumberOfCallsInHalfOpenState: 5
+                  
 
                                 
 
