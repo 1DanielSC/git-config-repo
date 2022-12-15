@@ -11,7 +11,7 @@ spring:
     sleuth:
         enabled: true
         sampler:
-            probability: 1.0
+            probability: 1
     cloud:
         loadbalancer:
             ribbon:
