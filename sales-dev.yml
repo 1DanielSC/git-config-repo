@@ -89,4 +89,4 @@ eureka:
         preferIpAddress: true
     
 server:
-    port: 8085
+    port: 8089
