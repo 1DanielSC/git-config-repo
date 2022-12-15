@@ -87,4 +87,4 @@ management:
       enabled: true
 
 server:
-    port: 8050
+    port: 8054
