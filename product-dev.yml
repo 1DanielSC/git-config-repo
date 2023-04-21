@@ -1,26 +1,28 @@
 spring:
     application:
         name: product
-    zipkin:
-        enabled: true
-        base-url: http://localhost:9411
-        locator:
-            discovery:
-                enabled: true
-    sleuth:
-        enabled: true
-        sampler:
-            probability: 1.0
+    #zipkin:
+        #enabled: true
+        #base-url: http://localhost:9411
+        #locator:
+            #discovery:
+                #enabled: true
+    #sleuth:
+        #enabled: true
+        #sampler:
+            #probability: 1.0
     datasource:
         username: postgres
         password: postgres
-        url: jdbc:postgresql://localhost:5432/product-back
+        #url: jdbc:postgresql://localhost:5432/product-back
+        url: jdbc:h2:mem:testdb
     jpa:
-        properties:
-            hibernate:
-                dialect: org.hibernate.dialect.PostgreSQLDialect
+        #properties:
+            #hibernate:
+                #dialect: org.hibernate.dialect.PostgreSQLDialect
         hibernate:
             ddl-auto: create
+        database-platform: org.hibernate.dialect.H2Dialect
     cloud:
         loadbalancer:
             ribbon:
