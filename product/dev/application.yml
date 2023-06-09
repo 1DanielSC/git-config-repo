@@ -1,3 +1,5 @@
+oi:"teste"
+
 spring:
     application:
         name: product
