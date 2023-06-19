@@ -8,8 +8,6 @@ eureka:
         fetch-register: true
         register-with-eureka: true
         defaultZone: http://localhost:8761/eureka
-        healcheck:
-          enabled: true
     instance:
         preferIpAddress: true
 
