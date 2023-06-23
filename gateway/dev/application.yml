@@ -1,27 +1,27 @@
 spring:
     application:
         name: gateway
-    zipkin:
-        enabled: true
-        base-url: http://localhost:9411
-        service.name: gateway
-        sender.type: web
-        locator:
-            discovery:
-                enabled: true
-    sleuth:
-        enabled: true
-        sampler:
-            probability: 1
+    # zipkin:
+    #     enabled: true
+    #     base-url: http://localhost:9411
+    #     service.name: gateway
+    #     sender.type: web
+    #     locator:
+    #         discovery:
+    #             enabled: true
+    # sleuth:
+    #     enabled: true
+    #     sampler:
+    #         probability: 1
     cloud:
         loadbalancer:
             ribbon:
                 enabled: false
         gateway:
-#            discovery:
- #               locator:
-  #                  enabled: true
-   #                 lower-case-service-id: true
+           discovery:
+               locator:
+                   enabled: true
+                   lowerCaseServiceId: true
             default-filters:
                 - name: Retry
                   args:
@@ -86,7 +86,8 @@ eureka:
     client:
         fetch-register: true
         register-with-eureka: true
-        defaultZone: http://localhost:8761/eureka
+        serviceUrl:
+          defaultZone: http://localhost:8761/eureka
     instance:
         preferIpAddress: true
     
