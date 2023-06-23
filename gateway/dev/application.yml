@@ -39,45 +39,45 @@ spring:
                   uri: lb://PRODUCT/
                   predicates:
                     - Path=/product/**
-                  filters:
-                    - name: CircuitBreaker
-                      args:
-                        name: product_circuit_breaker
-                        registerHealthIndicator: true
-                        failureRateThreshold: 50
-                        slidingWindowSize: 20
-                        minimumNumberOfCalls: 20
-                        waitDurationInOpenState: 10s
-                        permmitedNumberOfCallsInHalfOpenState: 5
+                  # filters:
+                  #   - name: CircuitBreaker
+                  #     args:
+                  #       name: product_circuit_breaker
+                  #       registerHealthIndicator: true
+                  #       failureRateThreshold: 50
+                  #       slidingWindowSize: 20
+                  #       minimumNumberOfCalls: 20
+                  #       waitDurationInOpenState: 10s
+                  #       permmitedNumberOfCallsInHalfOpenState: 5
                 - id: review-route
                   uri: lb://REVIEW/
                   predicates: 
                     - Path=/review/**
-                  filters:
-                    - name: CircuitBreaker
-                      args:
-                        name: review_circuit_breaker
-                        registerHealthIndicator: true
-                        failureRateThreshold: 50
-                        slidingWindowSize: 20
-                        minimumNumberOfCalls: 20
-                        waitDurationInOpenState: 10s
-                        permmitedNumberOfCallsInHalfOpenState: 5
+                  # filters:
+                  #   - name: CircuitBreaker
+                  #     args:
+                  #       name: review_circuit_breaker
+                  #       registerHealthIndicator: true
+                  #       failureRateThreshold: 50
+                  #       slidingWindowSize: 20
+                  #       minimumNumberOfCalls: 20
+                  #       waitDurationInOpenState: 10s
+                  #       permmitedNumberOfCallsInHalfOpenState: 5
                         
                 - id: sales-route
                   uri: lb://SALES/
                   predicates: 
                     - Path=/order/**
-                  filters:
-                    - name: CircuitBreaker
-                      args:
-                        name: sales_circuit_breaker
-                        registerHealthIndicator: true
-                        failureRateThreshold: 50
-                        slidingWindowSize: 20
-                        minimumNumberOfCalls: 20
-                        waitDurationInOpenState: 10s
-                        permmitedNumberOfCallsInHalfOpenState: 5
+                  # filters:
+                  #   - name: CircuitBreaker
+                  #     args:
+                  #       name: sales_circuit_breaker
+                  #       registerHealthIndicator: true
+                  #       failureRateThreshold: 50
+                  #       slidingWindowSize: 20
+                  #       minimumNumberOfCalls: 20
+                  #       waitDurationInOpenState: 10s
+                  #       permmitedNumberOfCallsInHalfOpenState: 5
                   
 
                                 
