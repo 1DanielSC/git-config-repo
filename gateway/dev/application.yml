@@ -22,23 +22,23 @@ spring:
                locator:
                    enabled: true
                    lowerCaseServiceId: true
-            default-filters:
-                - name: Retry
-                  args:
-                    retries: 3
-                    methods: GET
-                    statuses: BAD_GATEWAY
-                    backoff:
-                      firstBackoff: 50ms
-                      maxBackoff: 500ms
-                      factor: 2
-                      basedOnPreiousValue: false
+            # default-filters:
+            #     - name: Retry
+            #       args:
+            #         retries: 3
+            #         methods: GET
+            #         statuses: BAD_GATEWAY
+            #         backoff:
+            #           firstBackoff: 50ms
+            #           maxBackoff: 500ms
+            #           factor: 2
+            #           basedOnPreiousValue: false
                 
-            routes:
-                - id: product-route
-                  uri: lb://PRODUCT/
-                  predicates:
-                    - Path=/product/**
+            # routes:
+            #     - id: product-route
+            #       uri: lb://PRODUCT/
+            #       predicates:
+            #         - Path=/product/**
                   # filters:
                   #   - name: CircuitBreaker
                   #     args:
@@ -49,10 +49,10 @@ spring:
                   #       minimumNumberOfCalls: 20
                   #       waitDurationInOpenState: 10s
                   #       permmitedNumberOfCallsInHalfOpenState: 5
-                - id: review-route
-                  uri: lb://REVIEW/
-                  predicates: 
-                    - Path=/review/**
+                # - id: review-route
+                #   uri: lb://REVIEW/
+                #   predicates: 
+                #     - Path=/review/**
                   # filters:
                   #   - name: CircuitBreaker
                   #     args:
@@ -64,10 +64,10 @@ spring:
                   #       waitDurationInOpenState: 10s
                   #       permmitedNumberOfCallsInHalfOpenState: 5
                         
-                - id: sales-route
-                  uri: lb://SALES/
-                  predicates: 
-                    - Path=/order/**
+                # - id: sales-route
+                #   uri: lb://SALES/
+                #   predicates: 
+                #     - Path=/order/**
                   # filters:
                   #   - name: CircuitBreaker
                   #     args:
