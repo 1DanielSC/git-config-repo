@@ -78,9 +78,7 @@ spring:
                   #       minimumNumberOfCalls: 20
                   #       waitDurationInOpenState: 10s
                   #       permmitedNumberOfCallsInHalfOpenState: 5
-                  
-
-                                
+                                             
 
 eureka:
     client:
@@ -91,8 +89,6 @@ eureka:
     instance:
         preferIpAddress: true
     
-server:
-    port: 8090
     
 management:
   endpoint:
