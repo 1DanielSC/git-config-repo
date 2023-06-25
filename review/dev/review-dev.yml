@@ -91,5 +91,4 @@ management:
     circuitbreakers:
       enabled: true
 
-server:
-    port: 8054
+
