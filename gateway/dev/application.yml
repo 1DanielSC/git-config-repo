@@ -22,9 +22,9 @@ spring:
           #      locator:
           #          enabled: true
           #          lowerCaseServiceId: true
-            httpclient:
-              connect-timeout: 2000
-              response-timeout: 7s
+            # httpclient:
+            #   connect-timeout: 2000
+            #   response-timeout: 7s
             default-filters:
                 - name: Retry
                   args:
@@ -81,17 +81,14 @@ spring:
                   #       minimumNumberOfCalls: 20
                   #       waitDurationInOpenState: 10s
                   #       permmitedNumberOfCallsInHalfOpenState: 5
-
                 - id: rproduct-route
                   uri: lb://REACTIVEPRODUCT/
                   predicate:
                     - Path=/product/**
-
                 - id: rreview-route
                   uri: lb://REACTIVEREVIEW/
                   predicate:
                     - Path=/product-review/**
-
                 - id: rsales-route
                   uri: lb://REACTIVESALES/
                   predicate:
