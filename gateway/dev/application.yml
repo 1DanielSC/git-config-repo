@@ -82,17 +82,17 @@ spring:
                   #       waitDurationInOpenState: 10s
                   #       permmitedNumberOfCallsInHalfOpenState: 5
                 - id: reactive-product-route
-                  uri: lb://REACTIVEPRODUCT
+                  uri: lb://REACTIVEPRODUCT/
                   predicate:
                     - Path=/product/**
 
                 - id: reactive-review-route
-                  uri: lb://REACTIVEREVIEW
+                  uri: lb://REACTIVEREVIEW/
                   predicate:
                     - Path=/product-review/**
 
                 - id: reactive-sales-route
-                  uri: lb://REACTIVESALES
+                  uri: lb://REACTIVESALES/
                   predicate:
                     - Path=/order/**
                                              
