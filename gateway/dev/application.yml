@@ -81,20 +81,21 @@ spring:
                   #       minimumNumberOfCalls: 20
                   #       waitDurationInOpenState: 10s
                   #       permmitedNumberOfCallsInHalfOpenState: 5
+
                 - id: reactive-product-route
                   uri: lb://REACTIVEPRODUCT/
                   predicate:
-                    - Path=/product/**
+                    - Path=/tproduct/**
 
                 - id: reactive-review-route
                   uri: lb://REACTIVEREVIEW/
                   predicate:
-                    - Path=/product-review/**
+                    - Path=/tproduct-review/**
 
                 - id: reactive-sales-route
                   uri: lb://REACTIVESALES/
                   predicate:
-                    - Path=/order/**
+                    - Path=/torder/**
                                              
 
 eureka:
