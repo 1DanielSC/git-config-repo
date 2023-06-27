@@ -87,15 +87,15 @@ spring:
                 #   predicate:
                 #     - Path=/product/**
 
-                # - id: reactive-review-route
-                #   uri: lb://REACTIVEREVIEW/
-                #   predicate:
-                #     - Path=/product-review/**
+                - id: reactive-review-route
+                  uri: lb://REACTIVEREVIEW/
+                  predicate:
+                    - Path=/product-review/**
 
-                # - id: reactive-sales-route
-                #   uri: lb://REACTIVESALES/
-                #   predicate:
-                #     - Path=/order/**
+                - id: reactive-sales-route
+                  uri: lb://REACTIVESALES/
+                  predicate:
+                    - Path=/order/**
                                              
 
 eureka:
