@@ -20,4 +20,8 @@ eureka:
     client:
         fetch-register: false
         register-with-eureka: false
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+    server:
+        expected-client-renewal-interval-seconds: 2
 
