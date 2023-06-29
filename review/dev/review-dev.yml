@@ -35,7 +35,7 @@ spring:
             #host: 192.168.56.1
             port: 6379
             timeout: 2000
-            password: admin
+            #password: admin
         
 resilience4j.circuitbreaker:
     instances:
