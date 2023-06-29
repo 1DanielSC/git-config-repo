@@ -23,5 +23,6 @@ eureka:
         serviceUrl:
             defaultZone: http://localhost:8761/eureka/
     server:
+        enable-self-preservation: true
         expected-client-renewal-interval-seconds: 2
 
