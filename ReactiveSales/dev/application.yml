@@ -13,6 +13,10 @@ eureka:
         lease-renewal-interval-in-seconds: 2
         lease-expiration-duration-in-seconds: 5
 
+server:
+  servlet:
+    context-path: /reactive
+
 management:
   endpoints:
     web:
