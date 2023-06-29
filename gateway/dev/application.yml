@@ -55,7 +55,7 @@ spring:
                 - id: review-route
                   uri: lb://REVIEW/
                   predicates: 
-                    - Path=/review/**
+                    - Path=/product-review/**
                   # filters:
                   #   - name: CircuitBreaker
                   #     args:
@@ -121,6 +121,6 @@ management:
     web:
       exposure:
         include: "*"
-  health:
-    circuitbreakers:
-      enabled: true
+  # health:
+  #   circuitbreakers:
+  #     enabled: true
