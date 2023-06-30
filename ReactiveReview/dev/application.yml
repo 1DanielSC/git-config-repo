@@ -4,8 +4,8 @@ spring:
             uri: mongodb://localhost:27017/review_db
             auto-index-creation: true
     r2dbc:
-      url: r2dbc:h2:mem:testdb
-      # url: r2dbc:postgresql://localhost:5432/reviewr2
+      #url: r2dbc:h2:mem:testdb
+      url: r2dbc:postgresql://localhost:5432/reviewr2
       username: postgres
       password: postgres
 
