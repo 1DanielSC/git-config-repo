@@ -6,11 +6,10 @@ spring:
       repositories:
       enabled: true
   r2dbc:
-    url: r2dbc:h2:mem://./testdb
-    # driver: io.r2dbc.postgresql.PostgresqlConnectionFactory
-    #url: r2dbc:postgresql://localhost:5439/productr2
-    # username: postgres
-    # password: postgres
+    driver: io.r2dbc.postgresql.PostgresqlConnectionFactory
+    url: r2dbc:postgresql://localhost:5439/productr2
+    username: postgres
+    password: postgres
 
 eureka:
     client:
