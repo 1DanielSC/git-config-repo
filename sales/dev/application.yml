@@ -37,25 +37,24 @@ spring:
             timeout: 2000
             #password: admin
 
-resilience4j:
-    circuitbreaker:
-        instances:
-            productservice:
-                registerHealthIndicator: true
-                failureRateThreshold: 50
-                minimumNumberOfCalls: 5
-                automaticTransitionFromOpenToHalfOpenEnabled: true
-                waitDurationInOpenState: 7s
-                permittedNumberOfCallsInHalfOpenState: 3
-                slidingWindowSize: 10
-                slidingWindowType: COUNT_BASED
-                recordExceptions:
-                    - org.springframework.web.client.HttpServerErrorException
-                    - java.io.IOException
-                    - java.lang.IllegalStateException
-                    - java.util.concurrent.TimeoutException
-                    - org.springframework.web.client.ResourceAccessException
-                    - java.lang.RuntimeException
+resilience4j.circuitbreaker:
+    instances:
+        productservice:
+            registerHealthIndicator: true
+            failureRateThreshold: 50
+            minimumNumberOfCalls: 5
+            automaticTransitionFromOpenToHalfOpenEnabled: true
+            waitDurationInOpenState: 7s
+            permittedNumberOfCallsInHalfOpenState: 3
+            slidingWindowSize: 10
+            slidingWindowType: COUNT_BASED
+            recordExceptions:
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
+                - java.lang.IllegalStateException
+                - java.util.concurrent.TimeoutException
+                - org.springframework.web.client.ResourceAccessException
+                - java.lang.RuntimeException
         # getProductNameBreaker:
         #     registerHealthIndicator: true
         #     ringBufferSizeInClosedState: 5
