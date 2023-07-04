@@ -45,21 +45,14 @@ resilience4j.circuitbreaker:
             # ringBufferSizeInHalfOpenState: 3
             # waitDurationInOpenState: 7s
             # failureRateThreshold: 50
-            
-            # registerHealthIndicator: true
-            # failureRateThreshold: 50
-            # minimumNumberOfCalls: 5
-            # automaticTransitionFromOpenToHalfOpenEnabled: true
-            # waitDurationInOpenState: 7s
-            # permittedNumberOfCallsInHalfOpenState: 3
-            # slidingWindowSize: 10
-            # slidingWindowType: COUNT_BASED
-
             registerHealthIndicator: true
-            failureRateThreshold: 10
-            ringBufferSizeInClosedState: 10
-            waitDurationInOpenState: 3s
-            ringBufferSizeInHalfOpenState: 5
+            failureRateThreshold: 50
+            minimumNumberOfCalls: 5
+            automaticTransitionFromOpenToHalfOpenEnabled: true
+            waitDurationInOpenState: 7s
+            permittedNumberOfCallsInHalfOpenState: 3
+            slidingWindowSize: 10
+            slidingWindowType: COUNT_BASED
             recordExceptions:
                 - org.springframework.web.client.HttpServerErrorException
                 - java.io.IOException
@@ -72,7 +65,7 @@ resilience4j.circuitbreaker:
         #     ringBufferSizeInClosedState: 5
         #     ringBufferSizeInHalfOpenState: 3
         #     waitDurationInOpenState: 10s
-        #     failureRateThreashold: 5
+        #     failureRateThreshold: 5
         #     recordExceptions:
         #         - org.springframework.web.client.HttpServerErrorException
         #         - java.io.IOException
@@ -85,7 +78,7 @@ resilience4j.circuitbreaker:
         #     ringBufferSizeInClosedState: 5
         #     ringBufferSizeInHalfOpenState: 3
         #     waitDurationInOpenState: 10s
-        #     failureRateThreashold: 5
+        #     failureRateThreshold: 5
 
             
 resilience4j.bulkhead:
