@@ -75,7 +75,7 @@ resilience4j.circuitbreaker:
         #     waitDurationInOpenState: 10s
         #     failureRateThreshold: 5
 
-resilience4j.bulkhead:
+resilience4j.thread-pool-bulkhead:
     instances:
         bulk_productservice:
             maxThreadPoolSize: 1
