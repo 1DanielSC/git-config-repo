@@ -78,9 +78,9 @@ resilience4j.circuitbreaker:
 resilience4j.thread-pool-bulkhead:
     instances:
         bulk_productservice:
-            maxThreadPoolSize: 1
-            coreThreadPoolSize: 1
-            queueCapacity: 1
+            maxThreadPoolSize: 100
+            coreThreadPoolSize: 100
+            queueCapacity: 100
 
         # getProductNameBulk:
         #     maxWaitDuration: 2ms
