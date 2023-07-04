@@ -79,7 +79,7 @@ resilience4j.thread-pool-bulkhead:
     instances:
         bulk_productservice:
             maxThreadPoolSize: 100
-            coreThreadPoolSize: 100
+            coreThreadPoolSize: 3
             queueCapacity: 100
 
         # getProductNameBulk:
