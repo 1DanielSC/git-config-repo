@@ -39,7 +39,7 @@ spring:
         
 resilience4j.circuitbreaker:
     instances:
-        review-cb:
+        productservice:
             registerHealthIndicator: true
             ringBufferSizeInClosedState: 5
             ringBufferSizeInHalfOpenState: 3
