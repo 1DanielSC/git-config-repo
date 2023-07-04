@@ -45,13 +45,13 @@ resilience4j.circuitbreaker:
             ringBufferSizeInHalfOpenState: 3
             waitDurationInOpenState: 7s
             failureRateThreashold: 50
-            recordExceptions:
-                - org.springframework.web.client.HttpServerErrorException
-                - java.io.IOException
-                - java.lang.IllegalStateException
-                - java.util.concurrent.TimeoutException
-                - org.springframework.web.client.ResourceAccessException
-                - java.lang.RuntimeException
+            # recordExceptions:
+            #     - org.springframework.web.client.HttpServerErrorException
+            #     - java.io.IOException
+            #     - java.lang.IllegalStateException
+            #     - java.util.concurrent.TimeoutException
+            #     - org.springframework.web.client.ResourceAccessException
+            #     - java.lang.RuntimeException
         # getProductNameBreaker:
         #     registerHealthIndicator: true
         #     ringBufferSizeInClosedState: 5
