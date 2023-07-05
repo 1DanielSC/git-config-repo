@@ -60,6 +60,7 @@ resilience4j.circuitbreaker:
                 - java.util.concurrent.TimeoutException
                 - org.springframework.web.client.ResourceAccessException
                 - java.lang.RuntimeException
+                - java.lang.Throwable
         # getProductNameBreaker:
         #     registerHealthIndicator: true
         #     ringBufferSizeInClosedState: 5
@@ -80,21 +81,34 @@ resilience4j.circuitbreaker:
         #     waitDurationInOpenState: 10s
         #     failureRateThreshold: 5
 
-            
+#resilience4j.thread-pool-bulkhead   
 resilience4j.bulkhead:
     instances:
-        getProductNameBulk:
+        bulk_productservice:
             maxWaitDuration: 2ms
-            maxConcurrentCalls: 20
-        updateProductBulk:
-            maxWaitDuration: 2ms
-            maxConcurrentCalls: 20
+            maxConcurrentCalls: 10
+            # maxThreadPoolSize: 100
+            # coreThreadPoolSize: 3
+            # queueCapacity: 100
 
 resilience4j.retry:
     instances:
-        retryservicebeta:
+        retry_productservice:
             maxRetryAttempts: 5
-            waitDuration: 1000
+            waitDuration: 10000
+            retry-exceptions:
+                - java.util.concurrent.TimeoutException
+                - java.net.ConnectException
+                - java.lang.Throwable
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
+                
+resilience4j.ratelimiter:
+    instances:
+        rate_productservice:
+            timeoutDuration: 1000ms
+            limitRefreshPeriod: 5000
+            limitForPeriod: 5
 
 eureka:
     client:
