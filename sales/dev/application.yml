@@ -80,7 +80,7 @@ resilience4j.bulkhead:
     instances:
         bulk_productservice:
             maxWaitDuration: 2ms
-            maxConcurrentCalls: 2
+            maxConcurrentCalls: 10
             # maxThreadPoolSize: 100
             # coreThreadPoolSize: 3
             # queueCapacity: 100
