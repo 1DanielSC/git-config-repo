@@ -95,7 +95,15 @@ resilience4j.retry:
                 - java.util.concurrent.TimeoutException
                 - java.net.ConnectException
                 - java.lang.Throwable
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
                 
+resilience4j.ratelimiter:
+    instances:
+        rate_productservice:
+            timeoutDuration: 1000ms
+            limitRefreshPeriod: 5000
+            limitForPeriod: 5
 
 management:
   endpoints:
