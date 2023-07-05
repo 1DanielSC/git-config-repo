@@ -55,6 +55,7 @@ resilience4j.circuitbreaker:
                 - java.util.concurrent.TimeoutException
                 - org.springframework.web.client.ResourceAccessException
                 - java.lang.RuntimeException
+                - java.lang.Throwable
         # getProductNameBreaker:
         #     registerHealthIndicator: true
         #     ringBufferSizeInClosedState: 5
@@ -93,6 +94,8 @@ resilience4j.retry:
             retry-exceptions:
                 - java.util.concurrent.TimeoutException
                 - java.net.ConnectException
+                - java.lang.Throwable
+                
 
 management:
   endpoints:
