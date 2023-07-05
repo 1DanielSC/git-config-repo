@@ -85,16 +85,9 @@ resilience4j.bulkhead:
             # coreThreadPoolSize: 3
             # queueCapacity: 100
 
-        # getProductNameBulk:
-        #     maxWaitDuration: 2ms
-        #     maxConcurrentCalls: 20
-        # updateProductBulk:
-        #     maxWaitDuration: 2ms
-        #     maxConcurrentCalls: 20
-
 resilience4j.retry:
     instances:
-        retryservicebeta:
+        retry_productservice:
             maxRetryAttempts: 5
             waitDuration: 10000
             retry-exceptions:
