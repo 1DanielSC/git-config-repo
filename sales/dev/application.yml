@@ -79,11 +79,11 @@ resilience4j.circuitbreaker:
 resilience4j.bulkhead:
     instances:
         bulk_productservice:
-            maxWaitDuration: 2ms
-            maxConcurrentCalls: 2
-            # maxThreadPoolSize: 100
-            # coreThreadPoolSize: 3
-            # queueCapacity: 100
+            # maxWaitDuration: 2ms
+            # maxConcurrentCalls: 2
+            maxThreadPoolSize: 100
+            coreThreadPoolSize: 3
+            queueCapacity: 100
 
         # getProductNameBulk:
         #     maxWaitDuration: 2ms
