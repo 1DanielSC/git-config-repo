@@ -75,15 +75,15 @@ resilience4j.circuitbreaker:
         #     waitDurationInOpenState: 10s
         #     failureRateThreshold: 5
 
-#resilience4j.bulkhead
-resilience4j.thread-pool-bulkhead:
+#resilience4j.thread-pool-bulkhead
+resilience4j.bulkhead:
     instances:
         bulk_productservice:
-            # maxWaitDuration: 2ms
-            # maxConcurrentCalls: 2
-            maxThreadPoolSize: 100
-            coreThreadPoolSize: 3
-            queueCapacity: 100
+            maxWaitDuration: 2ms
+            maxConcurrentCalls: 2
+            # maxThreadPoolSize: 100
+            # coreThreadPoolSize: 3
+            # queueCapacity: 100
 
         # getProductNameBulk:
         #     maxWaitDuration: 2ms
