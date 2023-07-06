@@ -103,7 +103,7 @@ resilience4j.ratelimiter:
         rate_productservice:
             timeoutDuration: 1000ms
             limitRefreshPeriod: 5000
-            limitForPeriod: 5
+            limitForPeriod: 20
 
 management:
   endpoints:
@@ -117,6 +117,8 @@ management:
       show-details: ALWAYS
   health:
     circuitbreakers:
+      enabled: true
+    ratelimiters:
       enabled: true
 
 eureka:
