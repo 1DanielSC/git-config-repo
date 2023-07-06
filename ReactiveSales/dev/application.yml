@@ -59,8 +59,8 @@ resilience4j.retry:
     instances:
         retry_productservice:
             registerHealthIndicator: true
-            maxRetryAttempts: 5
-            waitDuration: 10000
+            maxRetryAttempts: 3
+            waitDuration: 5000
             retry-exceptions:
                 - java.util.concurrent.TimeoutException
                 - java.net.ConnectException
