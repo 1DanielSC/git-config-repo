@@ -74,7 +74,7 @@ resilience4j.ratelimiter:
             registerHealthIndicator: true
             timeoutDuration: 1000ms
             limitRefreshPeriod: 5000
-            limitForPeriod: 20
+            limitForPeriod: 3
             recordExceptions:
                 - org.springframework.web.client.HttpServerErrorException
                 - java.io.IOException
