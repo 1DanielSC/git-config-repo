@@ -46,6 +46,14 @@ resilience4j.bulkhead:
             # maxThreadPoolSize: 100
             # coreThreadPoolSize: 3
             # queueCapacity: 100
+            recordExceptions:
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
+                - java.lang.IllegalStateException
+                - java.util.concurrent.TimeoutException
+                - org.springframework.web.client.ResourceAccessException
+                - java.lang.RuntimeException
+                - java.lang.Throwable
 
 resilience4j.retry:
     instances:
@@ -67,6 +75,14 @@ resilience4j.ratelimiter:
             timeoutDuration: 1000ms
             limitRefreshPeriod: 5000
             limitForPeriod: 20
+            recordExceptions:
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
+                - java.lang.IllegalStateException
+                - java.util.concurrent.TimeoutException
+                - org.springframework.web.client.ResourceAccessException
+                - java.lang.RuntimeException
+                - java.lang.Throwable
 
 
 management:
