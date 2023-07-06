@@ -19,6 +19,51 @@ eureka:
         lease-renewal-interval-in-seconds: 2
         lease-expiration-duration-in-seconds: 5
 
+resilience4j.circuitbreaker:
+    instances:
+        productservice:
+            registerHealthIndicator: true
+            failureRateThreshold: 50
+            minimumNumberOfCalls: 5
+            automaticTransitionFromOpenToHalfOpenEnabled: true
+            waitDurationInOpenState: 7s
+            permittedNumberOfCallsInHalfOpenState: 3
+            slidingWindowSize: 10
+            slidingWindowType: COUNT_BASED
+            recordExceptions:
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
+                - java.lang.IllegalStateException
+                - java.util.concurrent.TimeoutException
+                - org.springframework.web.client.ResourceAccessException
+                - java.lang.RuntimeException
+                - java.lang.Throwable
+
+#resilience4j.thread-pool-bulkhead   
+resilience4j.bulkhead:
+    instances:
+        bulk_productservice:
+            maxWaitDuration: 2ms
+            maxConcurrentCalls: 10
+            # maxThreadPoolSize: 100
+            # coreThreadPoolSize: 3
+            # queueCapacity: 100
+
+resilience4j.retry:
+    instances:
+        retry_productservice:
+            maxRetryAttempts: 5
+            waitDuration: 10000
+            retry-exceptions:
+                - java.util.concurrent.TimeoutException
+                - java.net.ConnectException
+                - java.lang.Throwable
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
+
+
+
+
 management:
   endpoints:
     web:
@@ -27,3 +72,6 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+  health:
+    circuitbreakers:
+      enabled: true
