@@ -50,6 +50,7 @@ resilience4j.bulkhead:
 resilience4j.retry:
     instances:
         retry_productservice:
+            registerHealthIndicator: true
             maxRetryAttempts: 5
             waitDuration: 10000
             retry-exceptions:
@@ -62,6 +63,7 @@ resilience4j.retry:
 resilience4j.ratelimiter:
     instances:
         rate_productservice:
+            registerHealthIndicator: true
             timeoutDuration: 1000ms
             limitRefreshPeriod: 5000
             limitForPeriod: 5
@@ -77,4 +79,6 @@ management:
       show-details: ALWAYS
   health:
     circuitbreakers:
+      enabled: true
+    ratelimiters:
       enabled: true
