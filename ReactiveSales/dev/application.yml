@@ -66,7 +66,7 @@ resilience4j.ratelimiter:
             registerHealthIndicator: true
             timeoutDuration: 1000ms
             limitRefreshPeriod: 5000
-            limitForPeriod: 5
+            limitForPeriod: 20
 
 
 management:
