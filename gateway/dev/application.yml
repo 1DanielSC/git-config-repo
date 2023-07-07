@@ -44,8 +44,8 @@ spring:
                 - name: RequestRateLimiter
                   args:
                     redis-rate-limiter:
-                      replenishRate: 10
-                      burstCapacity: 15
+                      replenishRate: 2
+                      burstCapacity: 3
                       requestedTokens: 1
                 
             routes:
