@@ -9,14 +9,14 @@ spring:
         password: admin
         connection-timeout: 5s
     cloud:
-        function:
-            definition: createOrder
+        # function:
+        #     definition: createOrder
         stream:
             bindings:
                 createOrder-out-0:
                     destination: output-topic
-                findAll-out-1:
-                    destination: findall-topic
+                findAll-out-0:
+                    destination: findAll-topic
                 findById-in-0:
                     destination: intput-findById-topic
                 findById-out-0:
