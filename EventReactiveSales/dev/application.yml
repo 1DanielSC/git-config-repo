@@ -15,11 +15,11 @@ spring:
             bindings:
                 createOrder-out-0:
                     destination: createOrder-output-topic
-                findAll-out-0:
+                findAll-out-1:
                     destination: findAll-output-topic
-                findById-in-0:
+                findById-in-2:
                     destination: findById-input-topic
-                findById-out-0:
+                findById-out-2:
                     destination: findById-output-topic
 
 eureka:
