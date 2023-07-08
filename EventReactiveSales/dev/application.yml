@@ -1,0 +1,107 @@
+spring:
+    data:
+        mongodb:
+            uri: mongodb://localhost:27017/sales_db
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: admin
+        password: admin
+        connection-timeout: 5s
+    cloud:
+        stream:
+            bindings:
+                createOrder-out-0:
+                    destination: output-topic
+
+eureka:
+    client:
+        fetch-register: true
+        register-with-eureka: true
+        defaultZone: http://localhost:8761/eureka
+    instance:
+        preferIpAddress: true
+        #lease-renewal-interval-in-seconds: 2
+        #lease-expiration-duration-in-seconds: 5
+
+resilience4j.circuitbreaker:
+    instances:
+        productservice:
+            registerHealthIndicator: true
+            failureRateThreshold: 50
+            minimumNumberOfCalls: 5
+            automaticTransitionFromOpenToHalfOpenEnabled: true
+            waitDurationInOpenState: 7s
+            permittedNumberOfCallsInHalfOpenState: 3
+            slidingWindowSize: 10
+            slidingWindowType: COUNT_BASED
+            recordExceptions:
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
+                - java.lang.IllegalStateException
+                - java.util.concurrent.TimeoutException
+                - org.springframework.web.client.ResourceAccessException
+                - java.lang.RuntimeException
+                - java.lang.Throwable
+
+#resilience4j.thread-pool-bulkhead   
+resilience4j.bulkhead:
+    instances:
+        bulk_productservice:
+            maxWaitDuration: 2ms
+            maxConcurrentCalls: 10
+            # maxThreadPoolSize: 100
+            # coreThreadPoolSize: 3
+            # queueCapacity: 100
+            recordExceptions:
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
+                - java.lang.IllegalStateException
+                - java.util.concurrent.TimeoutException
+                - org.springframework.web.client.ResourceAccessException
+                - java.lang.RuntimeException
+                - java.lang.Throwable
+
+resilience4j.retry:
+    instances:
+        retry_productservice:
+            registerHealthIndicator: true
+            maxRetryAttempts: 3
+            waitDuration: 5000
+            retry-exceptions:
+                - java.util.concurrent.TimeoutException
+                - java.net.ConnectException
+                - java.lang.Throwable
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
+                
+resilience4j.ratelimiter:
+    instances:
+        rate_productservice:
+            registerHealthIndicator: true
+            timeoutDuration: 1000ms
+            limitRefreshPeriod: 5000
+            limitForPeriod: 3
+            recordExceptions:
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
+                - java.lang.IllegalStateException
+                - java.util.concurrent.TimeoutException
+                - org.springframework.web.client.ResourceAccessException
+                - java.lang.RuntimeException
+                - java.lang.Throwable
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+  health:
+    circuitbreakers:
+      enabled: true
+    ratelimiters:
+      enabled: true
