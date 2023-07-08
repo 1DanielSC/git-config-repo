@@ -15,7 +15,7 @@ spring:
             bindings:
                 createOrder-out-0:
                     destination: output-topic
-                findAll-out-0:
+                findAll-out-1:
                     destination: findall-topic
                 findById-in-0:
                     destination: intput-findById-topic
