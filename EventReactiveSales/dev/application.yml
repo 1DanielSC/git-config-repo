@@ -9,6 +9,8 @@ spring:
         password: admin
         connection-timeout: 5s
     cloud:
+        function:
+            definition: findById
         stream:
             bindings:
                 createOrder-out-0:
