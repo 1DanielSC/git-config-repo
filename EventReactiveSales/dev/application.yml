@@ -14,13 +14,13 @@ spring:
         stream:
             bindings:
                 createOrder-out-0:
-                    destination: output-topic
+                    destination: createOrder-output-topic
                 findAll-out-0:
-                    destination: findAll-topic
+                    destination: findAll-output-topic
                 findById-in-0:
-                    destination: intput-findById-topic
+                    destination: findById-input-topic
                 findById-out-0:
-                    destination: output-findById-topic
+                    destination: findById-output-topic
 
 eureka:
     client:
