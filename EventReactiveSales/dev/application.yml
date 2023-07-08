@@ -10,11 +10,17 @@ spring:
         connection-timeout: 5s
     cloud:
         function:
-            definition: findById
+            definition: createOrder
         stream:
             bindings:
                 createOrder-out-0:
                     destination: output-topic
+                findAll-out-0:
+                    destination: findall-topic
+                findById-in-0:
+                    destination: intput-findById-topic
+                findById-out-0:
+                    destination: output-findById-topic
 
 eureka:
     client:
