@@ -17,6 +17,12 @@ spring:
                     destination: createOrder-output-topic
                 findAll-out-1:
                     destination: findAll-output-topic
+                    
+                createOrder-out-0:
+                    destination:  # Set to an empty string
+                findAll-out-1:
+                    destination:  # Set to an empty string
+
                 findById-in-2:
                     destination: findById-input-topic
                 findById-out-2:
