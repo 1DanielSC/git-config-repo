@@ -1,0 +1,61 @@
+spring: 
+    data: 
+        mongodb:
+            uri: mongodb://localhost:27017/product_db
+  rabbitmq:
+        host: localhost
+        port: 5672
+        username: admin
+        password: admin
+        connection-timeout: 5s
+    cloud:
+        function:
+            definition: findAll;save;findById;findByName;findById;requestProduct;increaseQuantity
+        stream:
+            bindings:
+                product-findAll-out-0:
+                    destination: product-findAll-output-topic
+
+                product-save-in-0:
+                    destination: product-save-input-topic
+                product-save-out-0:
+                    destination: product-save-output-topic
+
+                product-findById-in-0:
+                    destination: product-findById-input-topic
+                product-findById-out-0:
+                    destination: product-findById-output-topic
+
+                product-findByName-in-0:
+                    destination: product-findByName-input-topic
+                product-findByName-out-0:
+                    destination: product-findByName-output-topic
+
+                requestProduct-in-0:
+                    destination: requestProduct-input-topic
+                requestProduct-out-0:
+                    destination: requestProduct-output-topic
+
+                increaseQuantity-in-0:
+                    destination: increaseQuantity-input-topic
+                increaseQuantity-out-0:
+                    destination: increaseQuantity-output-topic
+
+eureka:
+    client:
+        fetch-register: true
+        register-with-eureka: true
+        defaultZone: http://localhost:8761/eureka
+    instance:
+        preferIpAddress: true
+        #lease-renewal-interval-in-seconds: 2
+        #lease-expiration-duration-in-seconds: 5
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
