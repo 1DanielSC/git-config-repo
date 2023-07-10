@@ -9,9 +9,9 @@ spring:
         password: admin
         connection-timeout: 5s
     cloud:
+        function:
+            definition: findAll;save;findById;findByName;requestProduct;increaseQuantity
         stream:
-            function:
-                definition: findAll;save;findById;findByName;requestProduct;increaseQuantity
             bindings:
                 product-findAll-out-0:
                     destination: product-findAll-output-topic
