@@ -45,12 +45,10 @@ spring:
                     group: EventReactiveProduct
                     
                 requestProduct-in-0:
-                    destination: product-requestProduct-input
-                    group: EventReactiveProduct
+                    destination: entradadados
                     #destination: product-requestProduct-input-topic
                 requestProduct-out-0:
-                    destination: product-requestProduct-output
-                    group: EventReactiveProduct
+                    destination: saidadados
                     #destination: requestProduct-output-topic
 
 
