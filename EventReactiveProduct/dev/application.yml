@@ -13,23 +13,23 @@ spring:
             definition: findAll;save;findById;findByName;requestProduct;increaseQuantity
         stream:
             bindings:
-                product-findAll-out-0:
-                    destination: product-findAll-output-topic
+                findAll-out-0:
+                    destination: findAll-output-topic
 
-                product-save-in-0:
-                    destination: product-save-input-topic
-                product-save-out-0:
-                    destination: product-save-output-topic
+                save-in-0:
+                    destination: save-input-topic
+                save-out-0:
+                    destination: save-output-topic
 
-                product-findById-in-0:
-                    destination: product-findById-input-topic
-                product-findById-out-0:
-                    destination: product-findById-output-topic
+                findById-in-0:
+                    destination: findById-input-topic
+                findById-out-0:
+                    destination: findById-output-topic
 
-                product-findByName-in-0:
-                    destination: product-findByName-input-topic
-                product-findByName-out-0:
-                    destination: product-findByName-output-topic
+                findByName-in-0:
+                    destination: findByName-input-topic
+                findByName-out-0:
+                    destination: findByName-output-topic
 
                 increaseQuantity-in-0:
                     destination: increaseQuantity-input-topic
