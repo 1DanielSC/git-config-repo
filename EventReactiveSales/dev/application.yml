@@ -37,6 +37,8 @@ spring:
                 
                 confirmRequest-in-0:
                     destination: confirm-order-input
+                confirmRequest-out-0:
+                    destination: confirm-order-output
 
 
 eureka:
