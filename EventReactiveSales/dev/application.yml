@@ -30,9 +30,10 @@ spring:
                     destination: addItemToOrder-output-topic
 
                 requestProduct-in-0:
-                    destination: requestProduct-input-topic
-                requestProduct-out-0:
                     destination: requestProduct-output-topic
+                requestProduct-out-0:
+                     #A saída do requestProduct será enviada à entrada do requestProduct do Product 
+                    destination: requestProduct-input-topic
 
 
 eureka:
