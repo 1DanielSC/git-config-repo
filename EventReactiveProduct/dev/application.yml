@@ -18,13 +18,17 @@ spring:
 
                 save-in-0:
                     destination: save-input-topic
+                    group: EventReactiveProduct
                 save-out-0:
                     destination: save-output-topic
+                    group: EventReactiveProduct
 
                 findById-in-0:
                     destination: findById-input-topic
+                    group: EventReactiveProduct
                 findById-out-0:
                     destination: findById-output-topic
+                    group: EventReactiveProduct
 
                 findByName-in-0:
                     destination: findByName-input-topic
