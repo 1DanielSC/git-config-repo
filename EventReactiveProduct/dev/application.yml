@@ -32,7 +32,7 @@ spring:
                     destination: product-findByName-output-topic
 
                 requestProduct-in-0:
-                    destination: requestProduct-input-topic
+                    destination: product-requestProduct-input-topic
                 requestProduct-out-0:
                     destination: requestProduct-output-topic
 

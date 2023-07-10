@@ -33,7 +33,7 @@ spring:
                     destination: requestProduct-output-topic
                 requestProduct-out-0:
                      #A saída do requestProduct será enviada à entrada do requestProduct do Product 
-                    destination: requestProduct-input-topic
+                    destination: product-requestProduct-input-topic
 
 
 eureka:
