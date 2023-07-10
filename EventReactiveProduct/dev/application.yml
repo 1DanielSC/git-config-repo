@@ -41,11 +41,11 @@ spring:
                     destination: increaseQuantity-output-topic
                     
                 requestProduct-in-0:
-                    #destination: entradadados
-                    destination: product-requestProduct-input-topic
+                    destination: entradadados
+                    #destination: product-requestProduct-input-topic
                 requestProduct-out-0:
-                    #destination: saidadados
-                    destination: requestProduct-output-topic
+                    destination: saidadados
+                    #destination: requestProduct-output-topic
 
 
 eureka:
