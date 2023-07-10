@@ -10,30 +10,33 @@ spring:
         connection-timeout: 5s
     cloud:
         function:
-            definition: findAll;createOrder;findById;requestProduct;addItemToOrder
+            definition: findAll;createOrder;findById;requestProduct;addItemToOrder;confirmRequest
         stream:
             bindings:
                 createOrder-out-0:
-                    destination: createOrder-output-topic
+                    destination: order-create-output
 
                 findAll-out-0:
-                    destination: findAll-output-topic
+                    destination: order-findAll-output
                     
                 findById-in-0:
-                    destination: findById-input-topic
+                    destination: order-findById-input
                 findById-out-0:
-                    destination: findById-output-topic
+                    destination: order-findById-output
 
                 addItemToOrder-in-0:
-                    destination: addItemToOrder-input-topic
+                    destination: order-addItemToOrder-input
                 addItemToOrder-out-0:
-                    destination: addItemToOrder-output-topic
+                    destination: order-addItemToOrder-output
 
                 requestProduct-in-0:
-                    destination: requestProduct-output-topic
+                    destination: requestProduct-output
                 requestProduct-out-0:
                      #A saída do requestProduct será enviada à entrada do requestProduct do Product 
-                    destination: product-requestProduct-input-topic
+                    destination: product-requestProduct-input
+                
+                confirmRequest-in-0:
+                    destination: confirm-order-input
 
 
 eureka:

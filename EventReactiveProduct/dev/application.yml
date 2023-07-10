@@ -14,37 +14,43 @@ spring:
         stream:
             bindings:
                 findAll-out-0:
-                    destination: findAll-output-topic
+                    destination: product-findAll-output
 
                 save-in-0:
-                    destination: save-input-topic
+                    destination: product-save-input
                     group: EventReactiveProduct
                 save-out-0:
-                    destination: save-output-topic
+                    destination: product-save-output
                     group: EventReactiveProduct
 
                 findById-in-0:
-                    destination: findById-input-topic
+                    destination: product-findById-input
                     group: EventReactiveProduct
                 findById-out-0:
-                    destination: findById-output-topic
+                    destination: product-findById-output
                     group: EventReactiveProduct
 
                 findByName-in-0:
-                    destination: findByName-input-topic
+                    destination: product-findByName-input
+                    group: EventReactiveProduct
                 findByName-out-0:
-                    destination: findByName-output-topic
+                    destination: product-findByName-output
+                    group: EventReactiveProduct
 
                 increaseQuantity-in-0:
-                    destination: increaseQuantity-input-topic
+                    destination: product-increaseQuantity-input
+                    group: EventReactiveProduct
                 increaseQuantity-out-0:
-                    destination: increaseQuantity-output-topic
+                    destination: product-increaseQuantity-output
+                    group: EventReactiveProduct
                     
                 requestProduct-in-0:
-                    destination: entradadados
+                    destination: product-requestProduct-input
+                    group: EventReactiveProduct
                     #destination: product-requestProduct-input-topic
                 requestProduct-out-0:
-                    destination: saidadados
+                    destination: product-requestProduct-output
+                    group: EventReactiveProduct
                     #destination: requestProduct-output-topic
 
 
