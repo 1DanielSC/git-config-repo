@@ -35,11 +35,6 @@ spring:
                 #      #A saída do requestProduct será enviada à entrada do requestProduct do Product 
                 #     destination: product-requestProduct-input
                 
-                supplier-in-0:
-                    destination: order-addItemToOrder-output
-                supplier-out-0:
-                    destination: entradadados
-
                 confirmRequest-in-0:
                     destination: confirm-order-input
 
