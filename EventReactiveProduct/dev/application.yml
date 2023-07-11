@@ -47,8 +47,8 @@ spring:
                 requestProduct-in-0:
                     destination: entradadados
                     #destination: product-requestProduct-input-topic
-                requestProduct-out-0:
-                    destination: confirm-order-input
+                #requestProduct-out-0:
+                    #destination: confirm-order-input
                     #destination: requestProduct-output-topic
 
 
