@@ -10,7 +10,7 @@ spring:
         connection-timeout: 5s
     cloud:
         function:
-            definition: findAll;createOrder;findById;requestProduct;addItemToOrder;confirmRequest
+            definition: findAll;createOrder;findById;requestProduct;addItemToOrder;confirmRequest;supplier
         stream:
             bindings:
                 createOrder-out-0:
@@ -35,6 +35,9 @@ spring:
                 #      #A saída do requestProduct será enviada à entrada do requestProduct do Product 
                 #     destination: product-requestProduct-input
                 
+                supplier-out-0:
+                    destination: entradadados
+
                 confirmRequest-in-0:
                     destination: confirm-order-input
 
