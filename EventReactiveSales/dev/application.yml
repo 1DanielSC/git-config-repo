@@ -26,8 +26,10 @@ spring:
 
                 addItemToOrder-in-0:
                     destination: order-addItemToOrder-input
+                    group: EventReactiveProduct
                 addItemToOrder-out-0:
                     destination: order-addItemToOrder-output
+                    group: EventReactiveProduct
 
                 # requestProduct-in-0:
                 #     destination: requestProduct-output
@@ -37,6 +39,7 @@ spring:
                 
                 confirmRequest-in-0:
                     destination: confirm-order-input
+                    group: EventReactiveProduct
 
 
 eureka:
