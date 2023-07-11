@@ -29,16 +29,14 @@ spring:
                 addItemToOrder-out-0:
                     destination: order-addItemToOrder-output
 
-                requestProduct-in-0:
-                    destination: requestProduct-output
-                requestProduct-out-0:
-                     #A saída do requestProduct será enviada à entrada do requestProduct do Product 
-                    destination: product-requestProduct-input
+                # requestProduct-in-0:
+                #     destination: requestProduct-output
+                # requestProduct-out-0:
+                #      #A saída do requestProduct será enviada à entrada do requestProduct do Product 
+                #     destination: product-requestProduct-input
                 
                 confirmRequest-in-0:
                     destination: confirm-order-input
-                #confirmRequest-out-0:
-                    #destination: confirm-order-output
 
 
 eureka:
