@@ -53,6 +53,10 @@ spring:
                     group: EventReactiveProduct
                     #destination: requestProduct-output-topic
 
+                confirmProductExistance-in-0:
+                    destination: confirmProductExistance-input
+                    group: EventReactiveProduct
+
 
 eureka:
     client:
