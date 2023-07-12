@@ -10,7 +10,7 @@ spring:
         connection-timeout: 5s
     cloud:
         function:
-            definition: findAll;save;findById;findByName;requestProduct;increaseQuantity
+            definition: findAll;save;findById;findByName;requestProduct;increaseQuantity;confirmProductExistance
         stream:
             bindings:
                 findAll-out-0:
