@@ -2,60 +2,66 @@ spring:
     data: 
         mongodb:
             uri: mongodb://localhost:27017/product_db
-    rabbitmq:
-        host: localhost
-        port: 5672
-        username: admin
-        password: admin
-        connection-timeout: 5s
+    # rabbitmq:
+    #     host: localhost
+    #     port: 5672
+    #     username: admin
+    #     password: admin
+    #     connection-timeout: 5s
     cloud:
         function:
             definition: findAll;save;findById;findByName;requestProduct;increaseQuantity;confirmProductExistance
         stream:
-            bindings:
-                findAll-out-0:
-                    destination: product-findAll-output
+            kafka:
+                binder:
+                    brokers: localhost:9092
+                    replicationFactor: 1
 
-                save-in-0:
-                    destination: product-save-input
-                    group: EventReactiveProduct
-                save-out-0:
-                    destination: product-save-output
-                    group: EventReactiveProduct
-
-                findById-in-0:
-                    destination: product-findById-input
-                    group: EventReactiveProduct
-                findById-out-0:
-                    destination: product-findById-output
-                    group: EventReactiveProduct
-
-                findByName-in-0:
-                    destination: product-findByName-input
-                    group: EventReactiveProduct
-                findByName-out-0:
-                    destination: product-findByName-output
-                    group: EventReactiveProduct
-
-                increaseQuantity-in-0:
-                    destination: product-increaseQuantity-input
-                    group: EventReactiveProduct
-                increaseQuantity-out-0:
-                    destination: product-increaseQuantity-output
-                    group: EventReactiveProduct
                     
-                requestProduct-in-0:
-                    destination: entradadados
-                    group: EventReactiveProduct
-                    #destination: product-requestProduct-input-topic
-                requestProduct-out-0:
-                    destination: saidadados
-                    group: EventReactiveProduct
-                    #destination: requestProduct-output-topic
+                bindings:
+                    findAll-out-0:
+                        destination: product-findAll-output
 
-                confirmProductExistance-in-0:
-                    destination: confirmProductExistance-input
-                    group: EventReactiveProduct
+                    save-in-0:
+                        destination: product-save-input
+                        group: EventReactiveProduct
+                    save-out-0:
+                        destination: product-save-output
+                        group: EventReactiveProduct
+
+                    findById-in-0:
+                        destination: product-findById-input
+                        group: EventReactiveProduct
+                    findById-out-0:
+                        destination: product-findById-output
+                        group: EventReactiveProduct
+
+                    findByName-in-0:
+                        destination: product-findByName-input
+                        group: EventReactiveProduct
+                    findByName-out-0:
+                        destination: product-findByName-output
+                        group: EventReactiveProduct
+
+                    increaseQuantity-in-0:
+                        destination: product-increaseQuantity-input
+                        group: EventReactiveProduct
+                    increaseQuantity-out-0:
+                        destination: product-increaseQuantity-output
+                        group: EventReactiveProduct
+                        
+                    requestProduct-in-0:
+                        destination: entradadados
+                        group: EventReactiveProduct
+                        #destination: product-requestProduct-input-topic
+                    requestProduct-out-0:
+                        destination: saidadados
+                        group: EventReactiveProduct
+                        #destination: requestProduct-output-topic
+
+                    confirmProductExistance-in-0:
+                        destination: confirmProductExistance-input
+                        group: EventReactiveProduct
 
 
 eureka:
