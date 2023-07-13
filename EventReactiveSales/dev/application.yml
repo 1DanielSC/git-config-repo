@@ -12,34 +12,38 @@ spring:
         function:
             definition: findAll;createOrder;findById;requestProduct;addItemToOrder;confirmRequest;supplier
         stream:
-            bindings:
-                createOrder-out-0:
-                    destination: order-create-output
+            # kafka:
+            #     binder:
+            #         brokers: 192.168.56.1:9092
+            #         replicationFactor: 1
+                bindings:
+                    createOrder-out-0:
+                        destination: order-create-output
 
-                findAll-out-0:
-                    destination: order-findAll-output
+                    findAll-out-0:
+                        destination: order-findAll-output
+                        
+                    findById-in-0:
+                        destination: order-findById-input
+                    findById-out-0:
+                        destination: order-findById-output
+
+                    addItemToOrder-in-0:
+                        destination: order-addItemToOrder-input
+                        group: EventReactiveProduct
+                    addItemToOrder-out-0:
+                        destination: order-addItemToOrder-output
+                        group: EventReactiveProduct
+
+                    # requestProduct-in-0:
+                    #     destination: requestProduct-output
+                    # requestProduct-out-0:
+                    #      #A saída do requestProduct será enviada à entrada do requestProduct do Product 
+                    #     destination: product-requestProduct-input
                     
-                findById-in-0:
-                    destination: order-findById-input
-                findById-out-0:
-                    destination: order-findById-output
-
-                addItemToOrder-in-0:
-                    destination: order-addItemToOrder-input
-                    group: EventReactiveProduct
-                addItemToOrder-out-0:
-                    destination: order-addItemToOrder-output
-                    group: EventReactiveProduct
-
-                # requestProduct-in-0:
-                #     destination: requestProduct-output
-                # requestProduct-out-0:
-                #      #A saída do requestProduct será enviada à entrada do requestProduct do Product 
-                #     destination: product-requestProduct-input
-                
-                confirmRequest-in-0:
-                    destination: confirm-order-input
-                    group: EventReactiveProduct
+                    confirmRequest-in-0:
+                        destination: confirm-order-input
+                        group: EventReactiveProduct
 
 
 eureka:

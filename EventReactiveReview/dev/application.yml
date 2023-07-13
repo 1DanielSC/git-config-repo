@@ -13,22 +13,26 @@ spring:
         function:
             definition: findAll;findById;registerReview;save
         stream:
-            bindings:
-                findAll-out-0:
-                    destination: review-findAll-output
-                
-                findById-in-0:
-                    destination: review-findById-input
-                findById-out-0:
-                    destination: review-findById-output
+            # kafka:
+            #     binder:
+            #         brokers: 192.168.56.1:9092
+            #         replicationFactor: 1
+                bindings:
+                    findAll-out-0:
+                        destination: review-findAll-output
+                    
+                    findById-in-0:
+                        destination: review-findById-input
+                    findById-out-0:
+                        destination: review-findById-output
 
-                registerReview-in-0:
-                    destination: registerReview-input
-                
-                save-in-0:
-                    destination: review-save-input
-                save-out-0:
-                    destination: review-save-output
+                    registerReview-in-0:
+                        destination: registerReview-input
+                    
+                    save-in-0:
+                        destination: review-save-input
+                    save-out-0:
+                        destination: review-save-output
 
 
 eureka:
