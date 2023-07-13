@@ -2,20 +2,20 @@ spring:
     data: 
         mongodb:
             uri: mongodb://localhost:27017/product_db
-    rabbitmq:
-        host: localhost
-        port: 5672
-        username: admin
-        password: admin
-        connection-timeout: 5s
+    # rabbitmq:
+    #     host: localhost
+    #     port: 5672
+    #     username: admin
+    #     password: admin
+    #     connection-timeout: 5s
     cloud:
         function:
             definition: findAll;save;findById;findByName;requestProduct;increaseQuantity;confirmProductExistance
         stream:
-            # kafka:
-            #     binder:
-            #         brokers: 192.168.56.1:9092
-            #         replicationFactor: 1
+            kafka:
+                binder:
+                    brokers: 192.168.56.1:9092
+                    replicationFactor: 1
                 bindings:
                     findAll-out-0:
                         destination: product-findAll-output
