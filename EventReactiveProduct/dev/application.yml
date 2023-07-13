@@ -14,7 +14,7 @@ spring:
         stream:
             kafka:
                 binder:
-                    brokers: 192.168.56.1:9092
+                    brokers: localhost:9092
                     replicationFactor: 1
                 bindings:
                     findAll-out-0:
